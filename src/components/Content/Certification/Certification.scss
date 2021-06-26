@@ -1,3 +1,94 @@
+@import "../../../global";
+
 .certification {
-  background-color: bisque;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin: 10px;
+    text-align: center;
+  }
+
+  .container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+      background-color: lightsteelblue;
+      width: 250px;
+      height: 70%;
+      margin: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px -8px black;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px;
+      transition: all 1s ease;
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          &.logo {
+            height: 150px;
+            width: 150px;
+            border-radius: 10%;
+            object-fit: cover;
+            margin: 0 30px;
+          }
+        }
+      }
+
+      .bottom {
+        .description {
+          min-height: 40px;
+          text-align: center;
+          font-size: 15px;
+        }
+
+        .details {
+          background-color: lightslategray;
+          border-radius: 10px;
+          color: white;
+          margin: 10px;
+          padding: 10px;
+          float: right;
+
+          a {
+            text-decoration: none;
+            color: white;
+          }
+
+          &:visited {
+            color: white;
+          }
+
+          &:hover {
+            background-color: $mainColor;
+            color: white;
+            cursor: pointer;
+          }
+
+          &:active {
+            background-color: $mainColor;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      transition: all 1s ease-in-out;
+    }
+  }
 }

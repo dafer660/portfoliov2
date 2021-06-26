@@ -31,14 +31,12 @@
       }
 
       img:hover {
-        background-color: #cfd8dc;
-        border-radius: 25%;
+        transform: scale(0.95);
       }
-
     }
 
     .copyright {
-      p{
+      p {
         span {
           vertical-align: super;
           font-size: 10px;
