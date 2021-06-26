@@ -1,0 +1,29 @@
+@import "../../../global";
+
+.item {
+
+  margin: 5px;
+  border-radius: 15px;
+  border: 2px black solid;
+
+  .title {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: lightgrey;
+    transition: all 1s ease-in-out;
+  }
+
+  .title:hover {
+    background-color: $mainColor;
+    color: white;
+  }
+
+  .content {
+    padding: 1rem;
+    background-color: whitesmoke;
+    color: black;
+  }
+}

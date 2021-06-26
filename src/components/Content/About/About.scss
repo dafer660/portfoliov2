@@ -1,3 +1,51 @@
+@import "../../../global";
+
 .about {
-  background-color: aqua;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    margin: 10px;
+    text-align: center;
+  }
+
+  .container {
+    height: 90%;
+    width: 80%;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(179, 177, 177) rgb(100, 100, 100) rgb(68, 68, 68);
+
+    p {
+      span {
+        padding: 0 5px 0 5px;
+        margin: 0 5px 0 5px;
+        border-radius: 10px;
+        background-color: navajowhite;
+
+        &:hover {
+          background-color: $mainColor;
+          color: white;
+        }
+      }
+    }
+
+    /* Works on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgb(179, 177, 177);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgb(100, 100, 100);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background: rgb(68, 68, 68);
+    }
+  }
 }
