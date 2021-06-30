@@ -3,7 +3,7 @@ During the time I was in London, I was responsible to do the following:
 
 - **IT Support** for 6 different locations/hotels, as we were part of a Complex of hotels;
 - **Rollouts** of new software/services in conjunction with our Director of IT;
-- **Security and business continuity* (applying patches and responsible for incremental and full backups for critical systems)
+- **Security and business continuity** (applying patches and responsible for incremental and full backups for critical systems)
 - **Security audits and monitoring** (antivirus signature updates and applying firewall policies);
 - Continuous **preventive maintenance**, such as redoing cat cables, check WAP and VoIP phones;
 - **Hardware** and **Software support**, for example, keeping servers, printers, POS and other end devices in working order;

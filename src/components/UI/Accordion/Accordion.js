@@ -7,7 +7,8 @@ const Accordion = (props) => {
 
     return (
         <div className="item">
-            <div className="title" onClick={() => setOpen(!open)}>
+            <div className="title"
+                onClick={() => setOpen(!open)}>
                 <div>{props.title}</div>
                 <div>{open ? '-' : '+'}</div>
             </div>

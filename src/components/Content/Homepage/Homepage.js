@@ -12,11 +12,15 @@ const Homepage = () => {
             showCursor: true,
             backDelay: 1500,
             backSpeed: 60,
-            strings: ["Junior Developer", "Sys Admin",
-                "Python aficionado", "Coffee taster",
-                "Enjoys messing with Powershell",
-                "Likes Portuguese cuisine",
-                "Pasteis de Belém devourer"],
+            strings: [
+                "Junior Developer",
+                "Sys Admin",
+                "Python aficionado",
+                "Coffee taster",
+                "Enjoys Powershell",
+                "Likes Portuguese Cuisine",
+                "Loves Pastéis Belém"
+            ],
         });
     }, []);
 

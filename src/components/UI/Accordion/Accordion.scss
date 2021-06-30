@@ -1,7 +1,6 @@
 @import "../../../global";
 
 .item {
-
   margin: 5px;
   border-radius: 15px;
   border: 2px black solid;
@@ -12,18 +11,22 @@
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
-    background-color: lightgrey;
-    transition: all 1s ease-in-out;
+    background-color: whitesmoke;
+    transition: all 0.5s ease-out;
   }
 
   .title:hover {
-    background-color: $mainColor;
+    background-color: black;
     color: white;
   }
 
   .content {
     padding: 1rem;
-    background-color: whitesmoke;
+    background-color: #FFE7E7;
     color: black;
+    text-align: justify;
+    transition: all 0.5s ease-out;
   }
 }
+
+

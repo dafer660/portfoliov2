@@ -1,14 +1,68 @@
+@import "../../../global";
+
 .homepage {
-  background-color: white;
+  background-color: whitesmoke;
   display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include ipad {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include kindle {
+    flex-direction: column;
+    align-items: center;
+  }
 
   .left {
     flex: 0.5;
     overflow: hidden;
 
+    @include mobile {
+      flex: 0.7;
+      overflow: hidden;
+    }
+
+    @include ipad {
+      flex: 0.7;
+      overflow: hidden;
+    }
+
+    @include kindle {
+      flex: 0.7;
+      overflow: hidden;
+    }
+
     .leftContainer {
-      background: linear-gradient(to bottom, #5b0d07ff 0%, #000000 90%);
-      border-radius: 25px 15% 15% 225px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include mobile{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include ipad {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include kindle{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
       .imgContainer {
         width: 525px;
@@ -18,6 +72,57 @@
         align-items: flex-end;
         justify-content: center;
         float: right;
+        overflow: hidden;
+
+        @include mobile{
+          align-items: flex-start;
+          display: flex;
+          justify-content: center;
+          width: 75%;
+          height: 90%;
+        }
+
+        @include ipad{
+          align-items: flex-start;
+        }
+
+        @include kindle{
+          width: 90%;
+          height: 90%;
+          align-items: flex-start;
+        }
+
+        img {
+          border-radius: 50%;
+          height: 90%;
+
+          @include mobile{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 95%;
+            padding: 10px;
+            border-radius: 50%;
+          }
+
+          @include ipad{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 55%;
+            padding: 10px;
+            border-radius: 50%;
+          }
+
+          @include kindle{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90%;
+            padding: 10px;
+            border-radius: 50%;
+          }
+        }
       }
     }
   }
@@ -25,6 +130,19 @@
   .right {
     flex: 0.5;
     position: relative;
+
+    @include kindle {
+      flex: 0.3;
+    }
+
+    @include mobile {
+      flex: 0.3;
+      width: 100%;
+    }
+
+    @include ipad {
+      width: 100%;
+    }
 
     .wrapper {
       width: 100%;
@@ -34,16 +152,79 @@
       flex-direction: column;
       justify-content: center;
 
+      @include mobile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        flex-direction: column;
+        padding-left: 0;
+      }
+
+      @include ipad{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        flex-direction: column;
+        padding-left: 0;
+      }
+
+      @include kindle{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        flex-direction: column;
+        padding-left: 0;
+      }
+
       h1 {
         font-size: 40px;
+
+        @include mobile{
+          text-align: justify-all;
+        }
+
+        @include ipad{
+          text-align: justify-all;
+        }
+
+        @include kindle{
+          text-align: justify-all;
+        }
       }
 
       h2 {
         font-size: 30px;
+
+        @include mobile{
+          text-align: justify-all;
+        }
+
+        @include ipad{
+          text-align: justify-all;
+        }
+
+        @include kindle{
+          text-align: justify-all;
+        }
       }
 
       h3 {
         font-size: 25px;
+
+        @include mobile{
+          text-align: justify-all;
+        }
+
+        @include ipad{
+          text-align: justify-all;
+        }
+
+        @include kindle{
+          text-align: justify-all;
+        }
 
         span {
           font-size: inherit;
@@ -61,7 +242,6 @@
           100% {
             opacity: 0;
           }
-
         }
       }
     }

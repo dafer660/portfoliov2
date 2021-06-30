@@ -1,3 +1,156 @@
+@import "../../../global";
+
 .contact {
-  background-color: blueviolet;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .container {
+    height: 400px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    transition: all 1s ease;
+    background-color: crimson;
+    overflow: hidden;
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 4;
+      padding: 10px;
+      overflow: hidden;
+      transition: all 1s ease;
+
+      img {
+        width: 70%;
+        height: 70%;
+        border: 2px crimson solid;
+        border-radius: 25px;
+
+      }
+    }
+
+    .left:hover {
+      transform: scale(1.1);
+      transition: all 1s ease-in-out;
+    }
+
+    .right {
+      flex: 8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      .formContainer {
+        width: 80%;
+        height: 70%;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+
+          .googlePrivacy {
+            width: 300px;
+            padding: 10px;
+
+            p {
+              color: $mainColor;
+              font-size: 12px;
+
+              span {
+                a {
+                  color: white;
+                  text-decoration: none;
+                  border-radius: 5px;
+                  padding: 0 3px 0 3px;
+                }
+
+                a:hover {
+                  background-color: $mainColor;
+                  color: white;
+                  cursor: pointer;
+                }
+
+                a:active {
+                  background-color: $mainColor;
+                  color: white;
+                  cursor: pointer;
+                }
+
+                a:visited {
+                  color: white;
+                }
+              }
+            }
+          }
+
+          input[type = text],
+          input[type = email]{
+            width: 300px;
+            height: 30px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            outline: none;
+          }
+
+          input[type = text]:focus,
+          input[type = email]:focus,
+          input[type = text]:hover,
+          input[type = email]:hover{
+            background-color: whitesmoke;
+            color: black;
+            outline: none;
+          }
+
+          textarea {
+            width: 300px;
+            height: 100px;
+            font-size: 14px;
+            resize: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            outline: none;
+          }
+
+          textarea:hover,
+          textarea:focus {
+            background-color: whitesmoke;
+            color: black;
+            outline: none;
+          }
+
+          button {
+            width: 200px;
+            height: 30px;
+            color: black;
+            background-color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+
+            &:focus {
+              outline: none;
+            }
+
+            &:hover {
+              color: white;
+              background-color: $mainColor;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }

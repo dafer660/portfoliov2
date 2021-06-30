@@ -1,7 +1,7 @@
 @import "../../../global";
 
 .about {
-  background-color: white;
+  background-color: crimson;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,16 +18,19 @@
     scrollbar-color: rgb(179, 177, 177) rgb(100, 100, 100) rgb(68, 68, 68);
 
     p {
+      text-align: justify;
+      //color: black;
+
       span {
         padding: 0 5px 0 5px;
         margin: 0 5px 0 5px;
         border-radius: 10px;
         background-color: navajowhite;
 
-        &:hover {
-          background-color: $mainColor;
-          color: white;
-        }
+        //&:hover {
+        //  background-color: $mainColor;
+        //  color: white;
+        //}
       }
     }
 
@@ -47,5 +50,19 @@
     &::-webkit-scrollbar-thumb:active {
       background: rgb(68, 68, 68);
     }
+  }
+}
+
+.MuiAccordionDetails-root {
+  background-color: whitesmoke;
+}
+
+.MuiAccordionSummary-root.Mui-expanded {
+  background-color: lightgrey;
+}
+
+.MuiAccordionSummary-root {
+  p {
+    color: $mainColor;
   }
 }

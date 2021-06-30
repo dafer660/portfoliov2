@@ -2,7 +2,7 @@
 This was my first role within IT, and some task I was responsible for:
 
 - **Provide support** to end-users, on-site
-- Helping the IT Supervisor with Business continuity and security, which consisted of installing patches, backups
+- Helping the IT Supervisor with **Business continuity and security**, which consisted of installing patches, backups
 and security audits / monitoring (antivirus and firewall);
 - Continuous **preventive maintenance**, such as redoing cat cables and check WAP (rooms and conference rooms);
 - **Hardware** and **Software support**, for example, keeping servers, printers, POS and other end devices in working order;

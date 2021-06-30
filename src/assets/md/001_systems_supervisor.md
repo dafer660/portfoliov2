@@ -2,7 +2,7 @@
 I did a plethora of things, but mainly some of the items below were part of my schedule:
 
 - **Provide support** to end-users, on-site and off-site (remotely);
-- **Security and business continuity* (applying patches and responsible for incremental and full backups for critical systems)
+- **Security and business continuity** (applying patches and responsible for incremental and full backups for critical systems)
 - **Security audits and monitoring** (antivirus signature updates and applying firewall policies);
 - Providing and writing useful documentation for end users;
 - Continuous **preventive maintenance**, such as redoing cat cables, check WAP and VoIP phones;

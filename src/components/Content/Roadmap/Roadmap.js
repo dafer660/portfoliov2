@@ -16,6 +16,8 @@ const Roadmap = () => {
     const [open, setOpen] = useState(false);
     const [text, setText] = useState('');
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [touchPosition, setTouchPosition] = useState(null)
+
     const data = [
         {
             id: 1,
@@ -85,6 +87,11 @@ const Roadmap = () => {
         setCurrentLogo(data[currentSlide].logo)
     }, [currentSlide, setCurrentSlide])
 
+    const handleTouchStart = (e) => {
+        const touchDown = e.touches[0].clientX
+        setTouchPosition(touchDown)
+    }
+
     const handleShowModal = (filename) => {
         setCurrentFile(filename)
         setOpen(true)
@@ -110,8 +117,29 @@ const Roadmap = () => {
         }
     }
 
+    const handleTouchMove = (e) => {
+        const touchDown = touchPosition
+
+        if(touchDown === null) {
+            return
+        }
+
+        const currentTouch = e.touches[0].clientX
+        const diff = touchDown - currentTouch
+
+        if (diff > 10) {
+            handleSliderClick('left')
+        }
+
+        if (diff < -10) {
+            handleSliderClick()
+        }
+
+        setTouchPosition(null)
+    }
+
     return (
-        <div id="roadmap" className="roadmap">
+        <div id="roadmap" className="roadmap" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
             <Modal show={open} handleClose={handleHideModal}>
                 <div className="modalContainer">
                     <Markdown className='markdownContainer'>
@@ -125,7 +153,7 @@ const Roadmap = () => {
                          transform: `translateX(-${currentSlide * 100}vw)`,
                          overflow: 'hidden'
                      }
-                 }>
+                 } >
                 {data.map((d) => (
                     <div key={d.id} className="container">
                         <div className="item">

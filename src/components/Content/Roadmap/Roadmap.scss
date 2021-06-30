@@ -13,32 +13,74 @@
     position: absolute;
     cursor: pointer;
 
+    @include mobile {
+      display: none;
+    }
+
+    @include ipad {
+      //display: none;
+    }
+
     @keyframes left {
-      0%   {left: 100px;}
-      50%  {left: 90px;}
-      100% {left: 100px;}
+      0% {
+        left: 100px;
+      }
+      50% {
+        left: 90px;
+      }
+      100% {
+        left: 100px;
+      }
     }
 
     @-webkit-keyframes left {
-      0%   {left: 100px;}
-      50%  {left: 90px;}
-      100% {left: 100px;}
+      0% {
+        left: 100px;
+      }
+      50% {
+        left: 90px;
+      }
+      100% {
+        left: 100px;
+      }
     }
 
     @keyframes right {
-      0%   {right: 100px;}
-      50%  {right: 90px;}
-      100% {right: 100px;}
+      0% {
+        right: 70px;
+      }
+      50% {
+        right: 60px;
+      }
+      100% {
+        right: 70px;
+      }
     }
 
     @-webkit-keyframes right {
-      0%   {right: 100px;}
-      50%  {right: 90px;}
-      100% {right: 100px;}
+      0% {
+        right: 70px;
+      }
+      50% {
+        right: 60px;
+      }
+      100% {
+        right: 70px;
+      }
     }
 
     &.left {
-      left: 100px;
+      left: 70px;
+
+      @include ipad {
+        left: 35%;
+        bottom: 10%;
+      }
+
+      @include kindle {
+        left: 35%;
+        bottom: 10%;
+      }
     }
 
     &.left:hover {
@@ -46,7 +88,17 @@
     }
 
     &.right {
-      right: 100px;
+      right: 70px;
+
+      @include ipad {
+        right: 35%;
+        bottom: 10%;
+      }
+
+      @include kindle {
+        right: 35%;
+        bottom: 10%;
+      }
     }
 
     &.right:hover {
@@ -60,6 +112,22 @@
     position: absolute;
     left: 0;
     transition: all 1s ease;
+
+    @include mobile {
+      height: 75vh;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @include ipad {
+      height: 50vh;
+      justify-content: center;
+    }
+
+    @include kindle {
+      height: 50vh;
+      justify-content: center;
+    }
 
     .container {
       padding: 10px 0 10px 0;
@@ -79,9 +147,49 @@
         align-items: center;
         justify-content: center;
 
+        @include mobile {
+          width: 75%;
+          height: 150px;
+          margin: 10px 0;
+        }
+
+        @include ipad {
+          width: 75%;
+          height: 75%;
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @include kindle {
+          width: 75%;
+          height: 75%;
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
         .left {
           flex: 4;
           height: 100%;
+
+          @include mobile {
+            display: none;
+          }
+
+          @include ipad {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          @include kindle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
 
           .imgContainer {
             padding: 15px;
@@ -97,6 +205,12 @@
               img {
                 width: 75%;
                 height: 75%;
+
+                @include ipad {
+                  width: 100%;
+                  height: 100%;
+                  overflow: hidden;
+                }
               }
             }
           }
@@ -112,16 +226,32 @@
           flex: 8;
           height: 100%;
 
+          @include mobile {
+            flex: 14;
+          }
+
           .itemTitle {
             margin: 30px;
+
+            @include mobile {
+              margin: 15px;
+            }
 
             h3 {
               margin-bottom: 5px;
               font-size: 25px;
 
+              @include mobile {
+                font-size: 13px;
+              }
+
               span {
                 vertical-align: super;
                 font-size: 12px;
+
+                @include mobile {
+                  font-size: 10px;
+                }
               }
             }
           }
@@ -129,8 +259,11 @@
           .itemList {
             margin: 35px;
 
-            ul {
+            @include mobile {
+              margin: 5px;
+            }
 
+            ul {
 
               li {
                 font-weight: 400;
@@ -138,10 +271,19 @@
                 margin-bottom: 5px;
                 overflow: hidden;
 
-                span{
+                @include mobile {
+                  font-size: 10px;
+                  margin-bottom: 0;
+                }
+
+                span {
                   font-size: 20px;
                   font-weight: 0;
                   float: none;
+
+                  @include mobile {
+                    font-size: 10px;
+                  }
                 }
 
                 span:hover {
@@ -157,6 +299,12 @@
               margin-top: 10px;
               float: right;
               padding: 5px;
+
+              @include mobile {
+                font-size: 10px;
+                cursor: pointer;
+                float: right;
+              }
             }
 
             span:hover {
@@ -165,7 +313,6 @@
               border-radius: 10px;
               background-color: lightslategray;
             }
-
           }
         }
       }
@@ -187,6 +334,12 @@
         font-size: 14px;
         margin-bottom: 8px;
         text-align: justify;
+
+        @include mobile {
+          font-size: 10px;
+          margin-bottom: 4px;
+          text-align: justify;
+        }
       }
 
       ul {
@@ -195,24 +348,28 @@
         padding-right: 10px;
         list-style-position: inside;
 
+        @include mobile {
+          font-size: 10px;
+          list-style-type: disc;
+          padding-right: 2px;
+          text-align: justify;
+        }
+
         li {
           margin-bottom: 5px;
         }
       }
-
-      strong {
-        background-color: lightgray;
-        border-radius: 10px;
-        padding: 0 5px 0 5px;
-      }
-
-      strong:hover {
-        background-color: $mainColor;
-        color: white;
-      }
-
-
     }
 
+    strong {
+      background-color: lightgray;
+      border-radius: 10px;
+      padding: 0 5px 0 5px;
+    }
+
+    strong:hover {
+      background-color: $mainColor;
+      color: white;
+    }
   }
 }

@@ -1,1 +1,22 @@
 $mainColor: #15023a;
+
+@mixin mobile {
+  @media screen and (max-width: 600px){
+    /* place here CSS targeted at iPhones and smaller screen sizes, not iPads */
+    @content
+  }
+}
+
+@mixin ipad {
+  @media screen and (min-width: 600px) and (max-width: 768px){
+    /* place here CSS targeted at iPads and smaller, including iPhones and small hand-held devices */
+    @content
+  }
+}
+
+@mixin kindle {
+  @media screen and (min-width: 768px) and (max-width: 900px){
+    /** iPad only, or other similar-sized pads. Not iPhones, not smaller hand-held devices. **/
+    @content
+  }
+}
