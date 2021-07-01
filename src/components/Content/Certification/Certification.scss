@@ -1,7 +1,7 @@
 @import "../../../global";
 
 .certification {
-  background-color: white;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,14 +11,39 @@
     text-align: center;
   }
 
-  .container {
+  .certificationSlider {
     width: 100%;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 1s ease;
 
-    .card {
+    @include mobile {
+      width: 300vw;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      transition: all 1s ease;
+    }
+
+    @include ipad {
+      width: 300vw;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      transition: all 1s ease;
+    }
+
+    @include kindle {
+      width: 300vw;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      transition: all 1s ease;
+    }
+
+    .container {
       background-color: lightsteelblue;
       width: 250px;
       height: 70%;
@@ -31,62 +56,184 @@
       padding: 20px;
       transition: all 1s ease;
 
-      .top {
+      @include mobile {
+        padding: 10px 0 10px 0;
+        width: 100vw;
+        height: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        img {
-          &.logo {
-            height: 150px;
-            width: 150px;
-            border-radius: 10%;
-            object-fit: cover;
-            margin: 0 30px;
-          }
-        }
+        overflow: hidden;
       }
 
-      .bottom {
-        .description {
-          min-height: 40px;
-          text-align: center;
-          font-size: 15px;
+      @include ipad {
+        padding: 25px;
+        margin: 75px;
+        width: 100vw;
+        height: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      @include kindle {
+        padding: 25px;
+        margin: 75px;
+        width: 100vw;
+        height: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .item {
+
+        @include mobile {
+          width: 250px;
+          overflow-y: hidden;
         }
 
-        .details {
-          background-color: lightslategray;
-          border-radius: 10px;
-          color: white;
-          margin: 10px;
-          padding: 10px;
-          float: right;
+        @include ipad {
+          width: 500px;
+          overflow-y: hidden;
+        }
 
-          a {
-            text-decoration: none;
-            color: white;
+        @include kindle {
+          width: 500px;
+          overflow-y: hidden;
+        }
+
+        .top {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            &.logo {
+              height: 150px;
+              width: 150px;
+              border-radius: 10%;
+              object-fit: cover;
+              margin: 0 30px;
+
+              @include ipad {
+                height: 250px;
+                width: 250px;
+                border-radius: 10%;
+                object-fit: cover;
+                margin: 0 30px;
+              }
+
+              @include kindle {
+                height: 250px;
+                width: 250px;
+                border-radius: 10%;
+                object-fit: cover;
+                margin: 0 30px;
+              }
+            }
+          }
+        }
+
+        .bottom {
+
+          @include mobile {
+            margin: 15px;
           }
 
-          &:visited {
-            color: white;
+          @include ipad {
+            margin: 15px;
           }
 
-          &:hover {
-            background-color: $mainColor;
-            color: white;
-            cursor: pointer;
+          @include kindle {
+            margin: 15px;
           }
 
-          &:active {
-            background-color: $mainColor;
+          .description {
+            min-height: 40px;
+            text-align: center;
+            font-size: 15px;
+
+            @include mobile {
+              min-height: 45px;
+              overflow-y: hidden;
+              font-size: 13px;
+            }
+
+            @include ipad {
+              min-height: 50px;
+              overflow-y: hidden;
+              font-size: 20px;
+            }
+
+            @include kindle {
+              min-height: 50px;
+              overflow-y: hidden;
+              font-size: 20px;
+            }
+          }
+
+          .details {
+            background-color: lightslategray;
+            border-radius: 10px;
             color: white;
-            cursor: pointer;
+            margin: 10px;
+            padding: 10px;
+            float: right;
+
+            @include mobile {
+              align-self: end;
+              margin: 10px 0 10px 10px;
+            }
+
+            @include ipad {
+              align-self: end;
+              margin: 20px 0 20px 20px;
+            }
+
+            @include kindle {
+              align-self: end;
+              margin: 20px 0 20px 20px;
+            }
+
+            a {
+              text-decoration: none;
+              color: white;
+
+              @include ipad {
+                font-size: 20px;
+                font-weight: 500;
+              }
+
+              @include kindle {
+                font-size: 20px;
+                font-weight: 500;
+              }
+            }
+
+            &:visited {
+              color: white;
+            }
+
+            &:hover {
+              background-color: $mainColor;
+              color: white;
+              cursor: pointer;
+            }
+
+            &:active {
+              background-color: $mainColor;
+              color: white;
+              cursor: pointer;
+            }
           }
         }
       }
     }
 
-    .card:hover {
+    .container:hover {
       transform: scale(1.1);
       transition: all 1s ease-in-out;
     }

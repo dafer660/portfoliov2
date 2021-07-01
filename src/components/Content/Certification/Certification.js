@@ -1,12 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import './Certification.scss'
+
+import {handleSliderClick, handleTouchStart, handleTouchMove} from '../../../functions/slider'
 
 import comptia from '../../../assets/certifications/CompTIA_A_ce.png'
 import lfcs from '../../../assets/certifications/LFCS.png'
 import udacity from '../../../assets/certifications/udacity.png'
 
 const Certification = () => {
+    const [currentSlide, setCurrentSlide] = useState(0)
+    const [touchPosition, setTouchPosition] = useState(null)
+
     const data = [
         {
             id: 1,
@@ -29,25 +34,42 @@ const Certification = () => {
     ]
 
     return (
-        <div id="certification" className="certification">
+        <div id="certification" className="certification"
+             onTouchStart={(e) => {
+                 setTouchPosition(handleTouchStart(e))
+             }}
+             onTouchMove={(e) => {
+                 const touched = handleTouchMove(e, touchPosition)
+                 if (touched) {
+                     setTouchPosition(touched.position)
+                     setCurrentSlide(handleSliderClick(touched.direction, data, currentSlide))
+                 }
+             }}>
             <h1>Certifications</h1>
-            <div className="container">
+            <div className="certificationSlider" style={
+                {
+                    transform: `translateX(-${currentSlide * 100}vw)`,
+                    overflow: 'hidden'
+                }
+            }>
                 {data.map((d) => (
-                    <div key={d.id} className="card">
-                        <div className="top">
-                            <img className="logo" src={d.logo} alt='...'/>
-                        </div>
-                        <div className="bottom">
-                            <div className="description">
-                                <h3>{d.description}</h3>
+                    <div key={d.id} className="container">
+                        <div className="item">
+                            <div className="top">
+                                <img className="logo" src={d.logo} alt='...'/>
                             </div>
-                            <div className="details">
-                                <a href={d.url}
-                                   title={d.description}
-                                   target="_blank"
-                                   rel="noopener noreferrer">
-                                    Certificate URL
-                                </a>
+                            <div className="bottom">
+                                <div className="description">
+                                    <h3>{d.description}</h3>
+                                </div>
+                                <div className="details">
+                                    <a href={d.url}
+                                       title={d.description}
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        Certificate URL
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

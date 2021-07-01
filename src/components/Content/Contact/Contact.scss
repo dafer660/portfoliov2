@@ -1,7 +1,7 @@
 @import "../../../global";
 
 .contact {
-  background-color: white;
+  background-color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,6 +18,21 @@
     background-color: crimson;
     overflow: hidden;
 
+    @include mobile {
+      width: 100%;
+      height: 70%;
+    }
+
+    @include ipad {
+      width: 100%;
+      height: 60%;
+    }
+
+    @include kindle {
+      width: 100%;
+      height: 60%;
+    }
+
     .left {
       display: flex;
       align-items: center;
@@ -27,12 +42,23 @@
       overflow: hidden;
       transition: all 1s ease;
 
+      @include mobile {
+        display: none;
+      }
+
       img {
         width: 70%;
         height: 70%;
         border: 2px crimson solid;
         border-radius: 25px;
 
+        @include ipad {
+          width: 100%;
+        }
+
+        @include kindle {
+          width: 100%;
+        }
       }
     }
 
@@ -52,6 +78,18 @@
         width: 80%;
         height: 70%;
 
+        @include mobile {
+          width: 75%;
+        }
+
+        @include ipad {
+          width: 75%;
+        }
+
+        @include kindle {
+          width: 75%;
+        }
+
         form {
           display: flex;
           flex-direction: column;
@@ -61,6 +99,10 @@
           .googlePrivacy {
             width: 300px;
             padding: 10px;
+
+            @include mobile {
+              width: 250px;
+            }
 
             p {
               color: $mainColor;
@@ -101,6 +143,10 @@
             margin-bottom: 10px;
             border-radius: 5px;
             outline: none;
+
+            @include mobile {
+              width: 250px;
+            }
           }
 
           input[type = text]:focus,
@@ -110,6 +156,7 @@
             background-color: whitesmoke;
             color: black;
             outline: none;
+
           }
 
           textarea {
@@ -120,6 +167,10 @@
             border-radius: 5px;
             margin-bottom: 10px;
             outline: none;
+
+            @include mobile {
+              width: 250px;
+            }
           }
 
           textarea:hover,

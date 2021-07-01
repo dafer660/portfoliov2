@@ -18,7 +18,11 @@
     }
 
     @include ipad {
-      //display: none;
+      display: none;
+    }
+
+    @include kindle {
+      display: none;
     }
 
     @keyframes left {
@@ -71,16 +75,6 @@
 
     &.left {
       left: 70px;
-
-      @include ipad {
-        left: 35%;
-        bottom: 10%;
-      }
-
-      @include kindle {
-        left: 35%;
-        bottom: 10%;
-      }
     }
 
     &.left:hover {
@@ -89,16 +83,6 @@
 
     &.right {
       right: 70px;
-
-      @include ipad {
-        right: 35%;
-        bottom: 10%;
-      }
-
-      @include kindle {
-        right: 35%;
-        bottom: 10%;
-      }
     }
 
     &.right:hover {
@@ -114,18 +98,20 @@
     transition: all 1s ease;
 
     @include mobile {
-      height: 75vh;
-      flex-direction: column;
+      height: 70vh;
+      display: flex;
       justify-content: center;
     }
 
     @include ipad {
-      height: 50vh;
+      height: 70vh;
+      display: flex;
       justify-content: center;
     }
 
     @include kindle {
-      height: 50vh;
+      height: 70vh;
+      display: flex;
       justify-content: center;
     }
 
@@ -146,29 +132,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow-y: hidden;
 
         @include mobile {
+          flex-direction: column;
           width: 75%;
-          height: 150px;
-          margin: 10px 0;
+          height: 55vh;
+          margin: 10px 10px;
         }
 
         @include ipad {
+          flex-direction: column;
           width: 75%;
-          height: 75%;
-          margin: 10px 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          height: 60vh;
+          margin: 10px 10px;
         }
 
         @include kindle {
+          flex-direction: column;
           width: 75%;
-          height: 75%;
-          margin: 10px 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          height: 65vh;
+          margin: 10px 10px;
+
         }
 
         .left {
@@ -176,19 +161,34 @@
           height: 100%;
 
           @include mobile {
-            display: none;
+            flex: 5;
+            height: 100%;
+            width: 80%;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            overflow-y: hidden;
+
           }
 
           @include ipad {
-            display: flex;
+            flex: 5;
+            height: 100%;
+            width: 80%;
             align-items: center;
+            display: flex;
             justify-content: center;
+            overflow-y: hidden;
           }
 
           @include kindle {
-            display: flex;
+            flex: 5;
+            height: 100%;
+            width: 75%;
             align-items: center;
+            display: flex;
             justify-content: center;
+            overflow-y: hidden;
           }
 
           .imgContainer {
@@ -196,6 +196,14 @@
             margin: 35px 15px;
             border-radius: 25px;
             background-color: #f5f5f5;
+
+            @include ipad {
+              margin: 15px;
+            }
+
+            @include kindle {
+              margin: 15px;
+            }
 
             a {
               display: flex;
@@ -206,9 +214,19 @@
                 width: 75%;
                 height: 75%;
 
+                @include mobile {
+                  overflow: hidden;
+                }
+
                 @include ipad {
-                  width: 100%;
-                  height: 100%;
+                  width: 60%;
+                  height: 60%;
+                  overflow: hidden;
+                }
+
+                @include kindle {
+                  width: 60%;
+                  height: 60%;
                   overflow: hidden;
                 }
               }
@@ -227,14 +245,33 @@
           height: 100%;
 
           @include mobile {
-            flex: 14;
+            flex: 8;
+            height: 100%;
+          }
+
+          @include ipad {
+            flex: 8;
+            height: 100%;
+          }
+
+          @include kindle {
+            flex: 8;
+            height: 100%;
           }
 
           .itemTitle {
             margin: 30px;
 
             @include mobile {
-              margin: 15px;
+              margin: 20px;
+            }
+
+            @include ipad {
+              margin: 20px;
+            }
+
+            @include kindle {
+              margin: 20px;
             }
 
             h3 {
@@ -242,16 +279,20 @@
               font-size: 25px;
 
               @include mobile {
-                font-size: 13px;
+                font-size: 18px;
+              }
+
+              @include ipad {
+                text-align: center;
+              }
+
+              @include kindle {
+                text-align: center;
               }
 
               span {
                 vertical-align: super;
                 font-size: 12px;
-
-                @include mobile {
-                  font-size: 10px;
-                }
               }
             }
           }
@@ -260,20 +301,20 @@
             margin: 35px;
 
             @include mobile {
-              margin: 5px;
+              margin: 10px;
             }
 
             ul {
 
               li {
                 font-weight: 400;
-                font-size: 20px;
+                font-size: 25px;
                 margin-bottom: 5px;
                 overflow: hidden;
 
                 @include mobile {
-                  font-size: 10px;
-                  margin-bottom: 0;
+                  font-size: 12px;
+                  margin-bottom: 3px;
                 }
 
                 span {
@@ -282,7 +323,7 @@
                   float: none;
 
                   @include mobile {
-                    font-size: 10px;
+                    font-size: 12px;
                   }
                 }
 
@@ -291,23 +332,53 @@
                   cursor: default;
                   border-radius: 10px;
                   background-color: white;
+
+                  @include mobile {
+                    font-weight: 700;
+                    cursor: default;
+                  }
                 }
               }
             }
 
-            span {
+            .extraDetails {
               margin-top: 10px;
               float: right;
               padding: 5px;
 
               @include mobile {
-                font-size: 10px;
-                cursor: pointer;
+                font-size: 12px;
+                padding: 5px;
                 float: right;
+                border-radius: 10px;
+                background-color: lightslategray;
+                cursor: pointer;
+              }
+
+              @include ipad {
+                font-size: 20px;
+                font-weight: 700;
+                margin: 25px 5px 5px 5px;
+                padding: 5px;
+                float: right;
+                border-radius: 10px;
+                background-color: lightslategray;
+                cursor: pointer;
+              }
+
+              @include kindle {
+                font-size: 20px;
+                font-weight: 700;
+                margin: 45px 5px 5px 5px;
+                padding: 5px;
+                float: right;
+                border-radius: 10px;
+                background-color: lightslategray;
+                cursor: pointer;
               }
             }
 
-            span:hover {
+            .extraDetails:hover {
               font-weight: 700;
               cursor: pointer;
               border-radius: 10px;
@@ -317,59 +388,148 @@
         }
       }
 
-      .item:hover {
-        border: 3px firebrick outset;
-        box-shadow: 5px 5px #821e1e;
+      .swiper {
+        display: none;
+
+        @include mobile {
+          display: flex;
+          align-self: flex-end;
+
+          padding: 0 10px 10px 10px;
+
+          p {
+            font-size: 8px;
+            font-weight: 500;
+
+            span {
+              color: $mainColor;
+              background-color: whitesmoke;
+            }
+          }
+        }
+
+        @include ipad {
+          display: flex;
+          align-self: flex-end;
+
+          padding: 0 10px 10px 10px;
+
+          p {
+            font-size: 8px;
+            font-weight: 500;
+
+            span {
+              color: $mainColor;
+              background-color: whitesmoke;
+            }
+          }
+        }
+
+        @include kindle {
+          display: flex;
+          align-self: flex-end;
+
+          padding: 0 10px 10px 10px;
+
+          p {
+            font-size: 8px;
+            font-weight: 500;
+
+            span {
+              color: $mainColor;
+              background-color: whitesmoke;
+            }
+          }
+        }
+      }
+    }
+
+    .item:hover {
+      border: 3px firebrick outset;
+      box-shadow: 5px 5px #821e1e;
+    }
+  }
+}
+
+.modalContainer {
+  margin: 10px;
+  padding: 10px;
+
+  .markdownContainer {
+
+    p {
+      font-size: 14px;
+      margin-bottom: 8px;
+      text-align: justify;
+
+      @include mobile {
+        font-size: 10px;
+        margin-bottom: 4px;
+        text-align: justify;
+      }
+
+      @include ipad {
+        font-size: 14px;
+        margin-bottom: 4px;
+        text-align: justify;
+      }
+
+      @include kindle {
+        font-size: 16px;
+        margin-bottom: 8px;
+        text-align: justify;
+      }
+    }
+
+    ul {
+      font-size: 14px;
+      list-style-type: disc;
+      padding-right: 10px;
+      list-style-position: inside;
+
+      @include mobile {
+        font-size: 10px;
+        list-style-type: disc;
+        padding-right: 2px;
+        text-align: justify;
+      }
+
+      @include ipad {
+        font-size: 14px;
+        list-style-type: disc;
+        padding-right: 2px;
+        text-align: justify;
+      }
+
+      @include kindle {
+        font-size: 16px;
+        list-style-type: disc;
+        padding-right: 2px;
+        text-align: justify;
+      }
+
+      li {
+        margin-bottom: 5px;
+
+        @include ipad {
+          margin-bottom: 10px;
+        }
+
+        @include kindle {
+          margin-bottom: 10px;
+        }
       }
     }
   }
 
-  .modalContainer {
-    margin: 10px;
-    padding: 10px;
+  strong {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 0 5px 0 5px;
+  }
 
-    .markdownContainer {
-
-      p {
-        font-size: 14px;
-        margin-bottom: 8px;
-        text-align: justify;
-
-        @include mobile {
-          font-size: 10px;
-          margin-bottom: 4px;
-          text-align: justify;
-        }
-      }
-
-      ul {
-        font-size: 14px;
-        list-style-type: disc;
-        padding-right: 10px;
-        list-style-position: inside;
-
-        @include mobile {
-          font-size: 10px;
-          list-style-type: disc;
-          padding-right: 2px;
-          text-align: justify;
-        }
-
-        li {
-          margin-bottom: 5px;
-        }
-      }
-    }
-
-    strong {
-      background-color: lightgray;
-      border-radius: 10px;
-      padding: 0 5px 0 5px;
-    }
-
-    strong:hover {
-      background-color: $mainColor;
-      color: white;
-    }
+  strong:hover {
+    background-color: $mainColor;
+    color: white;
   }
 }

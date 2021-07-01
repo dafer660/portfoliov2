@@ -120,7 +120,7 @@ const Roadmap = () => {
     const handleTouchMove = (e) => {
         const touchDown = touchPosition
 
-        if(touchDown === null) {
+        if (touchDown === null) {
             return
         }
 
@@ -128,11 +128,11 @@ const Roadmap = () => {
         const diff = touchDown - currentTouch
 
         if (diff > 10) {
-            handleSliderClick('left')
+            handleSliderClick()
         }
 
         if (diff < -10) {
-            handleSliderClick()
+            handleSliderClick('left')
         }
 
         setTouchPosition(null)
@@ -153,7 +153,7 @@ const Roadmap = () => {
                          transform: `translateX(-${currentSlide * 100}vw)`,
                          overflow: 'hidden'
                      }
-                 } >
+                 }>
                 {data.map((d) => (
                     <div key={d.id} className="container">
                         <div className="item">
@@ -177,8 +177,11 @@ const Roadmap = () => {
                                         <li>Sector: <span>{d.sector}</span></li>
                                         <li>Location: <span>{d.location}</span></li>
                                     </ul>
-                                    <span onClick={() => handleShowModal(d.filename)}>Extra Details</span>
+                                    <span className={'extraDetails'} onClick={() => handleShowModal(d.filename)}>Extra Details</span>
                                 </div>
+                            </div>
+                            <div className={'swiper'}>
+                                <p >Swipe <span> right </span> or <span> left </span>for more</p>
                             </div>
                         </div>
                     </div>

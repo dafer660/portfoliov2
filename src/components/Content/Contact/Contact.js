@@ -7,8 +7,6 @@ import correio from '../../../assets/images/correio.jpg'
 import {Snackbar} from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 
-const SITE_KEY = "6Lfrg2UbAAAAAJuo6qtiWBpXSjw9OZNa_7Gj6WEo";
-
 const Contact = () => {
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false);
@@ -40,7 +38,7 @@ const Contact = () => {
         }
 
         // load the script by passing the URL
-        loadScriptByURL("recaptcha-key", `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`, function () {
+        loadScriptByURL("recaptcha-key", `https://www.google.com/recaptcha/api.js?render=${process.env.REACT_APP_SITE_KEY}`, function () {
             console.log("Script loaded!");
         });
     }, []);
@@ -57,11 +55,11 @@ const Contact = () => {
             // process.env.REACT_APP_TEMPLATE_ID
             // process.env.REACT_APP_USER_ID
             emailjs.send(
-                'service_izffhkk',
-                'template_cwu76rg',
+                process.env.REACT_APP_EMAIL_SERVICE_ID,
+                process.env.REACT_APP_EMAIL_TEMPLATE_ID,
                 templateParams,
-                'user_6FQfYnenAD1xEXlVQ2DYd',
-                '3544e63d383175806b1d71804aa03049'
+                process.env.REACT_APP_EMAIL_USER_ID,
+                process.env.REACT_APP_EMAIL_TOKEN
             ).then((result) => {
                 setSending(false)
                 setLoading(false)
@@ -87,7 +85,7 @@ const Contact = () => {
         }
 
         if (response && loading) {
-            console.log('sending email')
+            // console.log('sending email')
             handleEmail()
         }
 
@@ -132,7 +130,7 @@ const Contact = () => {
         e.preventDefault();
         setLoading(true);
         window.grecaptcha.ready(() => {
-            window.grecaptcha.execute(SITE_KEY, {action: 'submit'})
+            window.grecaptcha.execute(process.env.REACT_APP_SITE_KEY, {action: 'submit'})
                 .then(token => {
                     handleReCaptcha(token);
                 })
