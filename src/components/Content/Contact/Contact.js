@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import emailjs from 'emailjs-com';
 
 import './Contact.scss'
@@ -16,8 +16,18 @@ const Contact = () => {
     const [subject, setSubject] = useInput('')
     const [email, setEmail] = useInput('')
     const [message, setMessage] = useInput('');
-    const [severity, setSeverity] = useState('');
+    const [severity, setSeverity] = useState('success');
     const [severityMessage, setSeverityMessage] = useState('');
+    const inputElement = useRef(null);
+
+    // this should prevent the keyboard from overlapping the input fields
+    // on mobile at least
+    useEffect(() => {
+        inputElement.current.onfocus = () => {
+            window.scrollTo(0, 0);
+            document.body.scrollTop = 0;
+        };
+    });
 
     useEffect(() => {
         const loadScriptByURL = (id, url, callback) => {
@@ -51,9 +61,6 @@ const Contact = () => {
                 subject: subject,
                 message: message,
             };
-            // process.env.REACT_APP_SERVICE_ID
-            // process.env.REACT_APP_TEMPLATE_ID
-            // process.env.REACT_APP_USER_ID
             emailjs.send(
                 process.env.REACT_APP_EMAIL_SERVICE_ID,
                 process.env.REACT_APP_EMAIL_TEMPLATE_ID,
@@ -72,13 +79,9 @@ const Contact = () => {
             })
                 .then((res) => {
                     if (res === 'OK') {
-                        setSeverity('success')
-                        setSeverityMessage('Message sent. I will reply as soon as possible! Thank you!')
                         handleOpen('success', 'Message sent. I will reply as soon as possible! Thank you!')
                     }
                     else {
-                        setSeverity('error')
-                        setSeverityMessage('An error occurred. Please try again later.')
                         handleOpen('error', 'An error occurred. Please try again later.')
                     }
                 });
@@ -103,7 +106,7 @@ const Contact = () => {
 
     function handleReCaptcha(token) {
         // call a backend API to verify reCAPTCHA response
-        fetch('http://localhost:5000/verify', {
+        fetch(`${process.env.REACT_APP_URI}/verify`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -120,9 +123,13 @@ const Contact = () => {
                     setLoading(false);
                     setResponse(false);
                     setSending(false);
+                    handleOpen('error', 'An error occurred. Please try again later.')
                 }
             }).catch((err) => {
-            console.log(err)
+            setLoading(false);
+            setResponse(false);
+            setSending(false);
+            handleOpen('error', 'An error occurred. Please try again later.')
         });
     }
 
@@ -168,14 +175,14 @@ const Contact = () => {
                     <div className="formContainer">
                         <form onSubmit={handleSubmit}>
                             <input type={'text'} placeholder={'Name'} title={'Name'} id={'name'} name={'name'}
-                                   onChange={setName}/>
+                                   onChange={setName} ref={inputElement}/>
                             <input type={'text'} placeholder={'Subject'} title={'Subject'} id={'subject'}
                                    name={'subject'}
-                                   onChange={setSubject}/>
+                                   onChange={setSubject} ref={inputElement}/>
                             <input type={'email'} placeholder={'Email'} title={'Email'} id={'email'}
-                                   name={'email'} onChange={setEmail}/>
+                                   name={'email'} onChange={setEmail} ref={inputElement}/>
                             <textarea placeholder={'Message'} title={'Message'} id={'message'} name={'message'}
-                                      onChange={setMessage}/>
+                                      onChange={setMessage} ref={inputElement}/>
                             <div className="googlePrivacy">
                                 <p>
                                     This site is protected by reCAPTCHA and the Google <span>

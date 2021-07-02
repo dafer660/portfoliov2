@@ -71,6 +71,9 @@ const Certification = () => {
                                     </a>
                                 </div>
                             </div>
+                            <div className={'swiper'}>
+                                <p>Swipe <span> right </span> or <span> left </span>for more</p>
+                            </div>
                         </div>
                     </div>
                 ))}

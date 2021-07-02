@@ -24,7 +24,7 @@
     overflow: hidden;
 
     @include mobile {
-      flex: 0.7;
+      flex: 0.6;
       overflow: hidden;
     }
 
@@ -100,7 +100,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 95%;
             padding: 10px;
             border-radius: 50%;
           }
@@ -136,7 +135,7 @@
     }
 
     @include mobile {
-      flex: 0.3;
+      flex: 0.4;
       width: 100%;
     }
 
@@ -159,6 +158,7 @@
         text-align: justify;
         flex-direction: column;
         padding-left: 0;
+        height: 80%;
       }
 
       @include ipad{

@@ -136,8 +136,8 @@
 
         @include mobile {
           flex-direction: column;
-          width: 75%;
-          height: 55vh;
+          width: 70%;
+          height: 50vh;
           margin: 10px 10px;
         }
 
@@ -279,7 +279,7 @@
               font-size: 25px;
 
               @include mobile {
-                font-size: 18px;
+                font-size: 14px;
               }
 
               @include ipad {

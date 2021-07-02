@@ -59,7 +59,7 @@
       @include mobile {
         padding: 10px 0 10px 0;
         width: 100vw;
-        height: 50%;
+        height: 60%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -70,7 +70,7 @@
         padding: 25px;
         margin: 75px;
         width: 100vw;
-        height: 45%;
+        height: 55%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -81,7 +81,7 @@
         padding: 25px;
         margin: 75px;
         width: 100vw;
-        height: 45%;
+        height: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -89,7 +89,6 @@
       }
 
       .item {
-
         @include mobile {
           width: 250px;
           overflow-y: hidden;
@@ -230,6 +229,59 @@
             }
           }
         }
+
+        .swiper {
+          display: none;
+
+          @include mobile {
+            display: flex;
+            align-self: flex-end;
+            float: right;
+            padding: 0 10px 10px 10px;
+
+            p {
+              font-size: 8px;
+              font-weight: 500;
+
+              span {
+                color: $mainColor;
+              }
+            }
+          }
+
+          @include ipad {
+            display: flex;
+            align-self: flex-end;
+            padding: 0 10px 10px 10px;
+            float: right;
+
+            p {
+              font-size: 8px;
+              font-weight: 500;
+
+              span {
+                color: $mainColor;
+              }
+            }
+          }
+
+          @include kindle {
+            display: flex;
+            align-self: flex-end;
+            float: right;
+            padding: 0 10px 10px 10px;
+
+            p {
+              font-size: 8px;
+              font-weight: 500;
+
+              span {
+                color: $mainColor;
+              }
+            }
+          }
+        }
+
       }
     }
 
