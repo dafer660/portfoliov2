@@ -4,7 +4,7 @@ const request = require('request')
 
 const app = express()
 const path = require('path')
-const port = process.env.REACT_APP_API_PORT || 5000
+const port = process.env.PORT || 5000
 const SECRET_KEY = process.env.REACT_APP_SECRET_KEY
 
 // enable CORS using npm package
