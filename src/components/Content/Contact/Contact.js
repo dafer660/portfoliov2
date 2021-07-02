@@ -152,6 +152,7 @@ const Contact = () => {
         setOpen(false)
     };
 
+    // open Alert here
     const handleOpen = (severity, severityMessage) => {
         setOpen(true);
         setSeverity(severity);
